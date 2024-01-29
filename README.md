@@ -1,4 +1,4 @@
-# DES03 Project - Head Unit
+# DES04 Project - Parking Distance Control (PDC) <br>
 
 !! UNDER CONSTRUCTION !! <br>
 
@@ -12,11 +12,9 @@
   <!-- - [Known Issues](#known-issues) -->
 
 ## Introduction
-This project is part of the [embedded software development cirriculum at SEA-ME](https://github.com/SEA-ME/DES_Head-Unit). <br>
+This project is part of the [embedded software development cirriculum at SEA-ME](https://github.com/SEA-ME/DES_PDC-System). <br>
 
-It aims to develop a **Head Unit application** running on a ECU alongside the a **Instrument Cluster application** in Flutter. <br> 
-The Head Unit application will provide features like **ambient lighting, gear selection, and a media app**. <br> 
-Furthermore, the project uses **Scalable Service-Oriented Middleware (vSOME/IP)** for the in-vehicle communication and **Yocto as the build system** for the ECU. <br> 
+The goal of this project is to enhance the PiRacer by integrating a Park Distance Control (PDC) system, running on a Raspberry Pi (RPi) inside the DES_03 Project. The PDC system will utilize ultrasonic sensors to detect the distance between the vehicle and any obstacles, and provide an audible response to the driver. In addition, the full stack feature development will be integrated into the existing Yocto image, creating a comprehensive and fully functional system. The project aims to provide hands-on experience in developing and integrating advanced driver-assistance features, as well as provide a deeper understanding of the software and hardware involved in modern vehicles. The following sections will provide further details on the technical requirements, system architecture, software design, implementation, results, and references for this project.
 
 ## Collaborators
 If you find any kinds of bugs or issues, please contact 
@@ -27,16 +25,16 @@ If you find any kinds of bugs or issues, please contact
 ## Demonstration Video
 The following videos demonstrate the features of the project. <br>
 
-Head-Units' Media Player : <br>
-<img src="./documentation/images/media_player.gif" width="40%" margin="120%"> <br>
-Ambient Lighting Control via Head-Unit: <br>
-<img src="./documentation/images/gear_selection.gif" width="40%" margin="120%"> <br>
-Gear Selection by Head-Unit: <br>
-<img src="./documentation/images/instrument_cluster.gif" width="40%" margin="120%"> <br>
-Essential Car Information on Dashboard: <br>
-<img src="./documentation/images/car_info.gif" width="40%" margin="120%"> <br>
-PiRacer drives around: <br>
-<img src="./documentation/images/car_remote.gif" width="40%" margin="120%"> <br>
+F 1 : <br>
+<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
+F 2 : <br>
+<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
+F 3 : <br>
+<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
+F 4 : <br>
+<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
+F 5 : <br>
+<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
 
 ## Architecture
 The following image gives a brief overview about the [software structure](/documentation/software_structure.md) that runs on the cars' [system structure](/documentation/system_structure.md). <br>
@@ -58,12 +56,12 @@ The following image shows the project structure for the DES3 Head-Unit project. 
 To roll out the software, the sensors' controller and the ECU needs to be flashed. <br> 
 
 - `sensors` 
-  - Clone DES_3_Head-Unit repository. <br>
+  - Clone this repository. <br>
   - Choose the sensors' directory from the sensors folder. <br>
   - Flash the sensors' controller using the Arduino IDE. <br>
 
 - `image`
-  - Clone DES_3_yocto repository. <br>
+  - Clone the yocto repository. <br>
   - Bitbake the yocto image. <br>
   - Flash the yocto image on the ECU by loading the it on the RPis' SD-Card. <br>
 
@@ -94,11 +92,13 @@ As mentioned above, the `documentation` folder contains all the projects' docume
     - Applications: 
       - [1️⃣ head-unit](/documentation/headunit.md)
       - [2️⃣ dashboard](/documentation/dashboard.md)
-      - [3️⃣ can bus receiver](/documentation/can_receiver.md)
+      - [3️⃣ can bus receiver speed sensor](/documentation/can_receiver.md)
+      - [3️⃣ can bus receiver PDC](/documentation/can_receiver.md)
       - [4️⃣ car control](/documentation/car_control.md)
-      - [5️⃣ car information](/documentation/car_info.md)
+      - [5️⃣ battery information](/documentation/car_info.md)
     - Sensors: <br>
       - [6️⃣ rpm speed sensor](/documentation/rpm_speedsensor.md)
+      - [6️⃣ Park Distance Control sensor](/documentation/rpm_speedsensor.md)
 5) Testing: 
   - [📝 test requirments](/documentation/project-requirments.md)
 
