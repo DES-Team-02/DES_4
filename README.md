@@ -45,8 +45,11 @@ The rear zone contains the speedsensor. <br>
 The following image gives a brief overview about the [software structure](/documentation/software_structure.md) that runs on the cars' [system structure](/documentation/system_structure.md). <br>
 Each application serves a different functional based purpose and uses different peripheral interfaces and devices. <br> 
 BMWs' [CommonAPI](/documentation/common_api.md) ensure the communication between the applications via Scalable Service-Oriented Middleware over IP (SOME/IP). It is easy to add more apps to the system by using the [CI/CD workflows for CommonAPI](/documentation/workflows.md) we build. <br>
-In the current setup, the [speed sensor](/documentation/rpm_speedsensor.md) is the only sensor that feeds the cars' [CAN bus](/documentation/can_bus.md) but it can seamlessly be extended by adding more sensors to the CAN bus. <br>
+In the current setup, the [speed sensor](/documentation/rpm_speedsensor.md) is the only sensor that feeds the cars' [CAN bus](/documentation/can_bus.md) in the rear zone controller. <br>
+In the front zone controller, the [ultrasonic sensors](/documentation/ultrasonic_sensor.md) is connected. <br>
 The system operates with a custom-made [Yocto Image](/DES_3_Head-Unit/documentation/yocto.md) deployed on the Raspberry Pi ECUs. 
+The ADAS application runs on a NVIDIA Jetson Nano. <br>
+The NVIDIA Jetson Nano is connected to the Raspberry Pi via Ethernet. <br>
 
 ## Project Structure
 
