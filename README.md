@@ -1,7 +1,6 @@
-Wien
+**!! UNDER CONSTRUCTION !!**
 
-
-# DES04 Project - Parking Distance Control (PDC) and Advanced Driver Assistance Systems (ADAS) <br>
+# DES04 - Parking Distance Control (PDC) and Advanced Driver Assistance Systems (ADAS) <br>
 
 ## Table of contents
   - [Introduction](#introduction)
@@ -12,7 +11,7 @@ Wien
   - [Documentation](#documentation)
 
 ## Introduction
-This project is a merged project of the [embedded software development](https://github.com/SEA-ME/DES_PDC-System) and [autonomous lane detection](https://github.com/SEA-ME/ADS_Autonomous-Lane-Detection) cirriculum at SEA-ME. <br>
+This project is a merged from [embedded software (DES04)](https://github.com/SEA-ME/DES_PDC-System) and [autonomous lane detection (ADS01)](https://github.com/SEA-ME/ADS_Autonomous-Lane-Detection) of SEA-ME's cirriculum. <br>
 
 The goal of this project is to enhance integrating a Park Distance Control (PDC) system and Lane Keeping Assist System (LKA) to the piracer. <br>
 The PDC system will utilize ultrasonic sensors to detect the distance between the vehicle and any obstacles, and provide an audible response to the driver. In addition, the full stack feature development will be integrated into the existing Yocto image, creating a comprehensive and fully functional system. <br>
