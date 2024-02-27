@@ -1,6 +1,7 @@
-# DES04 Project - Parking Distance Control (PDC) <br>
+Wien
 
-!! UNDER CONSTRUCTION !! <br>
+
+# DES04 Project - Parking Distance Control (PDC) and Advanced Driver Assistance Systems (ADAS) <br>
 
 ## Table of contents
   - [Introduction](#introduction)
@@ -9,72 +10,64 @@
   - [Project Structure](#project-structure)
   - [Architecture](#architecture)
   - [Documentation](#documentation)
-  <!-- - [Known Issues](#known-issues) -->
 
 ## Introduction
-This project is part of the [embedded software development cirriculum at SEA-ME](https://github.com/SEA-ME/DES_PDC-System). <br>
+This project is a merged project of the [embedded software development](https://github.com/SEA-ME/DES_PDC-System) and [autonomous lane detection](https://github.com/SEA-ME/ADS_Autonomous-Lane-Detection) cirriculum at SEA-ME. <br>
 
-The goal of this project is to enhance the PiRacer by integrating a Park Distance Control (PDC) system, running on a Raspberry Pi (RPi) inside the DES_03 Project. The PDC system will utilize ultrasonic sensors to detect the distance between the vehicle and any obstacles, and provide an audible response to the driver. In addition, the full stack feature development will be integrated into the existing Yocto image, creating a comprehensive and fully functional system. The project aims to provide hands-on experience in developing and integrating advanced driver-assistance features, as well as provide a deeper understanding of the software and hardware involved in modern vehicles. The following sections will provide further details on the technical requirements, system architecture, software design, implementation, results, and references for this project.
+The goal of this project is to enhance integrating a Park Distance Control (PDC) system and Lane Keeping Assist System (LKA) to the piracer. <br>
+The PDC system will utilize ultrasonic sensors to detect the distance between the vehicle and any obstacles, and provide an audible response to the driver. In addition, the full stack feature development will be integrated into the existing Yocto image, creating a comprehensive and fully functional system. <br>
+Furthermore, in this project, the intersection of virtual simulations and real-world applications is used to enable  mechanisms of the Lane Keeping Assist System (LKA), a pivotal Level 1 autonomous driving feature. Using advanced simulation platforms and hardware implement an LKAS that can operate both virtually and in the real world. 
+
+The following sections will provide further details on the technical requirements, system architecture, software design, implementation, results, and references for this project.
 
 ## Collaborators
 If you find any kinds of bugs or issues, please contact 
 [Kian](https://github.com/kianwasabi), 
-[Jinghong](https://github.com/Lagavulin9) or 
-[Seungwoo](https://github.com/SeungWoo-L). 👌🏽
+[Jinghong](https://github.com/Lagavulin9), 
+[Seungwoo](https://github.com/SeungWoo-L), 
+[Nikas](https://github.com/NikDoh)👌🏽
 
 ## Demonstration Video
 The following videos demonstrate the features of the project. <br>
 
-F 1 : <br>
-<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
-F 2 : <br>
-<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
-F 3 : <br>
-<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
-F 4 : <br>
-<img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
-F 5 : <br>
+Demo Feature 1: <br>
 <img src="./documentation/images/.gif" width="40%" margin="120%"> <br>
 
-## Architecture
+## E/E Architecture
+We are using a centralized E/E architecture. <br>
+It is devided into the top computing zone and the lower sensor zone. <br>
+In the computing zone, you will find the central computing unit and the ADAS Unit. <br>
+The sensor zone is devided into the front, central and rear zone. <br>
+The front zone contains the ultrasonic sensors for the PDC. <br>
+The rear zone contains the speedsensor. <br>
+<img src="./documentation/images/ee_architecture.png" width="75%" margin="120%"> <br>
+
+## Software- and Harware Architecture
 The following image gives a brief overview about the [software structure](/documentation/software_structure.md) that runs on the cars' [system structure](/documentation/system_structure.md). <br>
-Each application like [head-unit](/documentation/headunit.md), [dashboard](/documentation/dashboard.md), [can_receiver](/documentation/can_receiver.md), [car_control](/documentation/car_control.md), and [car_info](/documentation/car_info.md) serves a different purpose and uses different peripheral interfaces and devices. <br> 
+Each application serves a different functional based purpose and uses different peripheral interfaces and devices. <br> 
 BMWs' [CommonAPI](/documentation/common_api.md) ensure the communication between the applications via Scalable Service-Oriented Middleware over IP (SOME/IP). It is easy to add more apps to the system by using the [CI/CD workflows for CommonAPI](/documentation/workflows.md) we build. <br>
 In the current setup, the [speed sensor](/documentation/rpm_speedsensor.md) is the only sensor that feeds the cars' [CAN bus](/documentation/can_bus.md) but it can seamlessly be extended by adding more sensors to the CAN bus. <br>
 The system operates with a custom-made [Yocto Image](/DES_3_Head-Unit/documentation/yocto.md) deployed on the Raspberry Pi ECUs. 
 
-<img src="./documentation/images/head_unit_structure.png" width="75%" margin="120%"> <br>
-
 ## Project Structure
 
 The following image shows the project structure for the DES3 Head-Unit project. <br>
-- `apps`: contains submodules which hold the source code to run the car. <br> 
-- `sensors`: contains submodules for the sensors' controllers that feed vehicle CAN bus. <br>
-- `image`: contains a submodule that provides config files and recipes to bitbake the vehicles' ECU yocto image. _(Note: The bitbake recipes are fetching the apps' source code from the submodules' repositories.)_<br>
+- `apps`: submodules which hold the source code from the computing zone. <br> 
+- `sensors`: submodules for the front and rear zone controllers. <br>
+- `image`: submodule that provides config files and recipes to bitbake the vehicles' ECU yocto image.
 - `documentation`: summarizes all the projects' documentation. <br>
-
-To roll out the software, the sensors' controller and the ECU needs to be flashed. <br> 
-
-- `sensors` 
-  - Clone this repository. <br>
-  - Choose the sensors' directory from the sensors folder. <br>
-  - Flash the sensors' controller using the Arduino IDE. <br>
-
-- `image`
-  - Clone the yocto repository. <br>
-  - Bitbake the yocto image. <br>
-  - Flash the yocto image on the ECU by loading the it on the RPis' SD-Card. <br>
-
-<img src="./documentation/images/project_structure.png"> <br>
 
 > _The development in each submodule is done individually by the assigned developer. <br>
 Once a feature is ready, a new release following the teams' [conventions](/documentation/project_conventions.md) is published._ <br>
 
+## Delivery
+To roll out the software, the sensors' controller and the ECU needs to be flashed. <br> 
+
 ## Documentation
-As mentioned above, the `documentation` folder contains all the projects' documentation. The files are distinguished by the phases the project went through. If you seek for more informations, don't hesitate to read through the following docs.  
-<br>
+
 1) Requirements Gathering: 
-  - [🧑🏽‍🏫 subject](/documentation/subject.md) 
+  - [🧑🏽‍🏫 subject DES04](/documentation/subject_DES04.md) 
+  - [🧑🏽‍🏫 subject ADS01](/documentation/subject_ADS01.md) 
   - [📝 project requirments](/documentation/project_requirments.md)
 2) Planning Design, System & Software:
   - [🧑🏽‍🎨 frontend design](/documentation/design.md)
@@ -82,24 +75,15 @@ As mentioned above, the `documentation` folder contains all the projects' docume
   - [👨🏽‍💻 software structure](/documentation/software_structure.md)
 3) Team Collaboration:
   - [🔓 conventions](/documentation/project_conventions.md)
-  - [📋 kanban board](https://github.com/users/Lagavulin9/projects/2)
+  - [📋 kanban board](https://github.com/orgs/DES-Team-02/projects/1)
 4) Integration: <br>
-    - Technologies:
-      - [⬅️ CAN bus](/documentation/can_bus.md)
-      - [🔛 vSOME/IP & CommonAPI](/documentation/common_api.md)
-      - [🤖 CI/CD workflow](/documentation/workflows.md)
-      - [🍪 Yocto](/documentation/yocto.md)
-    - Applications: 
-      - [1️⃣ head-unit](/documentation/headunit.md)
-      - [2️⃣ dashboard](/documentation/dashboard.md)
-      - [3️⃣ can bus receiver speed sensor](/documentation/can_receiver.md)
-      - [3️⃣ can bus receiver PDC](/documentation/can_receiver.md)
-      - [4️⃣ car control](/documentation/car_control.md)
-      - [5️⃣ battery information](/documentation/car_info.md)
-    - Sensors: <br>
-      - [6️⃣ rpm speed sensor](/documentation/rpm_speedsensor.md)
-      - [6️⃣ Park Distance Control sensor](/documentation/rpm_speedsensor.md)
+    - Technologies: tbd <br>
+    - Applications: see submdoules's README.md <br>
+    - Sensors: see submdoules's README.md <br>
 5) Testing: 
   - [📝 test requirments](/documentation/project-requirments.md)
+
+
+
 
 
