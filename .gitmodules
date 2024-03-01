@@ -6,7 +6,7 @@
 	url = https://github.com/Lagavulin9/Flutter_Dashboard.git
 [submodule "sensors/rpm_sensor"]
 	path = sensors/rpm_sensor
-	url = https://github.com/kianwasabi/rpm_sensor.git
+	url = https://github.com/DES-Team-02/rpm_sensor.git
 [submodule "image/DES_3_yocto"]
 	path = image/DES_3_yocto
 	url = https://github.com/SeungWoo-L/DES_3_yocto.git
@@ -19,3 +19,6 @@
 [submodule "apps/can_receiver"]
 	path = apps/can_receiver
 	url = https://github.com/SeungWoo-L/can_receiver.git
+[submodule "sensors/pdc_sensor"]
+	path = sensors/pdc_sensor
+	url = https://github.com/DES-Team-02/pdc_sensor.git
