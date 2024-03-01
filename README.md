@@ -11,11 +11,11 @@
   - [Documentation](#documentation)
 
 ## Introduction
-This project is a merged from [embedded software (DES04)](https://github.com/SEA-ME/DES_PDC-System) and [autonomous lane detection (ADS01)](https://github.com/SEA-ME/ADS_Autonomous-Lane-Detection) of SEA-ME's cirriculum. <br>
+This project merges the requirments of [Park-Distance-Control (DES04)](https://github.com/SEA-ME/DES_PDC-System) and [autonomous lane detection (ADS01)](https://github.com/SEA-ME/ADS_Autonomous-Lane-Detection) into a scalable open-source E/E Architecture. <br>
 
-The goal of this project is to enhance integrating a Park Distance Control (PDC) system and Lane Keeping Assist System (LKA) to the piracer. <br>
-The PDC system will utilize ultrasonic sensors to detect the distance between the vehicle and any obstacles, and provide an audible response to the driver. In addition, the full stack feature development will be integrated into the existing Yocto image, creating a comprehensive and fully functional system. <br>
-Furthermore, in this project, the intersection of virtual simulations and real-world applications is used to enable  mechanisms of the Lane Keeping Assist System (LKA), a pivotal Level 1 autonomous driving feature. Using advanced simulation platforms and hardware implement an LKAS that can operate both virtually and in the real world. 
+The goal of this project is to enhance integrating a new embedded in-vehicle feature <Park Distance Control (PDC) system> and a new in-vehicle feature for ADAS Lane Keeping Assist System (LKA). <br>
+The PDC system utilizes ultrasonic sensors to detect the distance between the vehicle and any obstacles, and provide an response to the driver. In addition, the full stack feature development will be integrated into the existing Yocto image, creating a comprehensive and fully functional system. <br>
+Furthermore, the intersection of virtual simulations and real-world applications is used to enable  mechanisms of the Lane Keeping Assist System (LKA), a pivotal Level 1 autonomous driving feature. Using advanced simulation platforms and hardware implement an LKAS that can operate both virtually and in the real world. 
 
 The following sections will provide further details on the technical requirements, system architecture, software design, implementation, results, and references for this project.
 
