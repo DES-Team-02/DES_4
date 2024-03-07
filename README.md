@@ -1,6 +1,6 @@
 **!! UNDER CONSTRUCTION !!**
 
-# DES04 - Parking Distance Control (PDC) and Advanced Driver Assistance Systems (ADAS) <br>
+# DES04 - Automatic Car Distance Controll (AC⚡️DC) and Advanced Driver Assistance Systems (ADAS) <br>
 
 ## Table of contents
   - [Introduction](#introduction)
