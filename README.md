@@ -54,8 +54,7 @@ The Rear Zone contains the Speed Sensor System. <br>
 This repository is structured as followed. <br>
 - `apps`: [submodules](/apps) for the **Computing Layer** <br> 
   - [Cloud Connector / Fleet Manager](https://github.com/DES-Team-02/fleet-manager)<br>
-  - [Front Zone CAN Receiver](https://github.com/DES-Team-02/can_front)<br>
-  - [Rear Zone CAN Receiver](https://github.com/DES-Team-02/can_rear) <br>
+  - [CAN Receiver](https://github.com/DES-Team-02/can_receiver)<br>
   - [ADAS (Lane Assistance)](https://github.com/DES-Team-02/lane_assistant) <br>
   - [Drive Train Controller](https://github.com/DES-Team-02/car_control) <br>
   - [Battery Information](https://github.com/DES-Team-02/battery_info) <br>
